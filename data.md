@@ -11,19 +11,40 @@ The sample contains:
 
 The scans consist of 7 days of growth of a plant, one scan per day.
 
+The naming convention is (F/C)(D/L)M(#)
+- F/C: fine or coarse soil
+- D/L: dense or loose
+- M: the type of plant, in our case always Maize
+- #: A number identifying the specific sample
+
 There are two types of soil for which we have such series of scans: 
 - coarse: 2 series
+    - The average particle diameter is 330 microns
 - fine: 4 series
+    - The average particle diameter is 1900 microns
 
-Each 3D image 1600 2d slices of resolution 650x650
+
+Each 3D image 1600 2d slices of 650x650 pixels.
+The slices are horizontal slices, ordered **from top to bottom**?
+
+The resolution for horizontal slices is 80 micron per pixel.
 
 **Total voxels** ~ 6x7x1600x650^2 = 28T,
 Not all are usable as the scanning region is spherical, say 10T usable, still 500x the amount in the simulations
 
 We have the possibility to generate about 2 more such series.
 
+One scan is about 1.3Gb, for a total of 6*7*1.3 = 55Gb.
+These scans are all downsampled by a factor of 2 in each(?) direction, so the originals are about 8 times as large.
+
 The difference between air and water is the most difficult, thresholding doesn't work there, depending on the saturation level.
 Coarse sand is more difficult than fine sand.
+
+### Questions
+- The ordering of horizontal slices is from top to bottom right? i.e. slice 1 is physically above slice 2?
+- What is the resolution in the z direction?
+- The readme of the published data says the pixel size is 60 micrometers rather than 80?
+
 
 ## Simulation
 Lattice-Boltzmann-DEM simulations.
